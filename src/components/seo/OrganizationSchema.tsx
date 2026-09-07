@@ -12,11 +12,7 @@ export default function OrganizationSchema() {
       addressLocality: "Kathmandu",
       addressCountry: "NP",
     },
-    contactPoint: {
-      "@type": "ContactPoint",
-      telephone: "01-523456",
-      contactType: "customer service",
-    },
+    
   };
 
   return (

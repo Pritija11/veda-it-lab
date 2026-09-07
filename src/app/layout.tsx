@@ -32,6 +32,10 @@ export const metadata: Metadata = {
   description:
     "VedAIT Labs is a technology startup building modern digital and infrastructure solutions, with a strong focus on cloud engineering, DevOps, automation, and security.",
 
+    alternates: {
+  canonical: "/",
+},
+
   keywords: [
     "VedAIT Labs",
     "VedAIT Labs startup",
