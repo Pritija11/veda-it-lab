@@ -1,5 +1,8 @@
 import type { MetadataRoute } from "next";
 
+import { pillars } from "@/data/pillars";
+import { researchArticles } from "@/data/research";
+
 const baseUrl = "https://vedaitlabs.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -16,6 +19,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/solutions`,
       changeFrequency: "monthly",
       priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/industries`,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/how-we-work`,
+      changeFrequency: "monthly",
+      priority: 0.7,
     },
     {
       url: `${baseUrl}/about`,
@@ -39,36 +52,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
 
     // Solution pages
-    {
-      url: `${baseUrl}/solutions/cloud-engineering`,
-      changeFrequency: "monthly",
+    ...pillars.map((pillar) => ({
+      url: `${baseUrl}/solutions/${pillar.id}`,
+      changeFrequency: "monthly" as const,
       priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/solutions/devops-automation`,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/solutions/infrastructure-security`,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/solutions/software-engineering`,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/solutions/data-ai`,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/solutions/it-consulting`,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
+    })),
+
+    // Research articles
+    ...researchArticles.map((article) => ({
+      url: `${baseUrl}/research/${article.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
 
     // Legal pages
     {

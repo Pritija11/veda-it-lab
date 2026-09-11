@@ -1,243 +1,114 @@
 import Link from "next/link";
 
+const satellites = [
+  { label: "DATA", x: 60, y: 70, r: 34, color: "#BDF3D2" },
+  { label: "MODEL", x: 340, y: 50, r: 30, color: "#BDEBFF" },
+  { label: "AGENT", x: 380, y: 210, r: 32, color: "#FFBBD8" },
+  { label: "VISION", x: 60, y: 260, r: 28, color: "#FFD0B8" },
+  { label: "KNOWLEDGE", x: 20, y: 165, r: 26, color: "#FFF09A" },
+  { label: "ACTION", x: 360, y: 130, r: 24, color: "#FF9FAE" },
+];
+
+const CX = 210;
+const CY = 165;
+
 export default function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#070B14] pt-32">
-      {/* Background grid */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 opacity-[0.035]"
-        style={{
-          backgroundImage:
-            "linear-gradient(#94A3B8 1px, transparent 1px), linear-gradient(90deg, #94A3B8 1px, transparent 1px)",
-          backgroundSize: "64px 64px",
-        }}
-      />
+    <section className="relative overflow-hidden bg-[#FFFDF8] pb-24 pt-[150px] sm:pt-[168px]">
+      {/* Subtle technical grid, one corner only */}
+      <div className="tech-grid pointer-events-none absolute -right-10 -top-10 h-72 w-72" aria-hidden />
 
-      {/* Ambient glow */}
-      <div
-        aria-hidden="true"
-        className="absolute left-1/2 top-20 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-blue-500/10 blur-[140px]"
-      />
+      {/* Oversized cropped editorial type, bleeding off the edge */}
+      <span
+        className="pointer-events-none absolute -left-6 bottom-0 select-none font-[family-name:var(--font-fraunces)] text-[10rem] font-semibold leading-none tracking-tighter text-[#27233A]/[0.04] sm:text-[14rem]"
+        aria-hidden
+      >
+        AI
+      </span>
 
-      <div className="relative mx-auto flex min-h-[calc(100vh-8rem)] max-w-7xl items-center px-6 pb-20 lg:px-8">
-        <div className="grid w-full items-center gap-16 lg:grid-cols-[1fr_1fr] lg:gap-10">
-          
-          {/* Left content */}
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="grid items-center gap-16 lg:grid-cols-[1.1fr_0.9fr]">
+          {/* Copy */}
           <div className="max-w-2xl">
-            <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-blue-400/20 bg-blue-500/5 px-4 py-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-blue-400 shadow-[0_0_10px_rgba(96,165,250,0.8)]" />
-              <span className="text-xs font-medium uppercase tracking-[0.18em] text-blue-300">
-                Technology Startup
+            <div className="chip bg-[#27233A] text-white">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="node-pulse absolute inline-flex h-full w-full rounded-full bg-[#FF7187]" />
+                <span className="relative h-1.5 w-1.5 rounded-full bg-[#FF7187]" />
               </span>
+              Applied AI Startup
             </div>
 
-            <h1 className="text-4xl font-semibold leading-[1.08] tracking-tight text-slate-100 sm:text-5xl lg:text-6xl">
-              Building the technology behind{" "}
-              <span className="text-blue-400">what comes next.</span>
+            <h1 className="mt-7 font-[family-name:var(--font-fraunces)] text-6xl font-semibold leading-[1.02] tracking-[-0.01em] text-[#27233A] sm:text-7xl">
+              AI that moves from{" "}
+              <span className="italic text-[#FF7187]">possibility</span> to
+              product.
             </h1>
 
-            <p className="mt-7 max-w-xl text-base leading-8 text-slate-400 sm:text-lg">
-              VedAIT Labs is a technology startup focused on building modern
-              digital and infrastructure solutions. We help businesses
-              engineer reliable cloud environments, automate delivery, and
-              build systems ready to scale.
+            <p className="mt-8 max-w-xl text-lg leading-8 text-[#706B80]">
+              VedAIT Labs is an applied AI startup building intelligent
+              systems that turn data, AI models, and automation into
+              real-world business capabilities.
             </p>
 
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-500 px-6 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:bg-blue-400 hover:shadow-xl hover:shadow-blue-500/20"
-              >
-                Start a conversation
-                <span>→</span>
-              </Link>
-
+            <div className="mt-10 flex flex-wrap gap-4">
               <Link
                 href="/solutions"
-                className="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] px-6 py-3.5 text-sm font-semibold text-slate-300 transition-all duration-200 hover:border-white/20 hover:bg-white/[0.06] hover:text-white"
+                className="inline-flex items-center gap-2 rounded-full bg-[#27233A] px-7 py-3.5 text-sm font-bold text-white transition-transform duration-200 hover:-translate-y-0.5"
               >
-                Explore our solutions
+                Explore AI Solutions
+                <span>↗</span>
               </Link>
-            </div>
-
-            {/* Focus areas */}
-            <div className="mt-12 flex flex-wrap gap-x-6 gap-y-3 border-t border-white/10 pt-6">
-              <span className="text-sm text-slate-500">
-                Cloud Engineering
-              </span>
-              <span className="hidden text-slate-700 sm:block">/</span>
-              <span className="text-sm text-slate-500">
-                DevOps & Automation
-              </span>
-              <span className="hidden text-slate-700 sm:block">/</span>
-              <span className="text-sm text-slate-500">
-                Infrastructure Security
-              </span>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-full border border-[#27233A]/15 bg-white px-7 py-3.5 text-sm font-bold text-[#27233A] transition-colors hover:border-[#27233A]/35"
+              >
+                Talk to us
+              </Link>
             </div>
           </div>
 
-          {/* Right infrastructure visual */}
-          <div className="relative mx-auto w-full max-w-xl">
-            <div className="relative aspect-square">
-              
-              {/* Outer glow */}
-              <div
-                aria-hidden="true"
-                className="absolute inset-10 rounded-full bg-blue-500/10 blur-3xl"
-              />
+          {/* Solid-object AI composition — no blur, no gradient */}
+          <div className="relative mx-auto w-full max-w-[420px]">
+            <svg viewBox="0 0 420 330" className="h-[330px] w-full overflow-visible">
+              {/* Connections from center to each satellite */}
+              {satellites.map((s) => (
+                <g key={`line-${s.label}`}>
+                  <line x1={CX} y1={CY} x2={s.x} y2={s.y} stroke="#27233A" strokeOpacity="0.12" strokeWidth="1.5" />
+                  <line x1={CX} y1={CY} x2={s.x} y2={s.y} stroke="#5BA7FF" strokeOpacity="0.45" strokeWidth="1.5" className="dash-flow" />
+                </g>
+              ))}
 
-              {/* Main infrastructure panel */}
-              <div className="absolute inset-4 rounded-3xl border border-white/10 bg-[#0D1422]/80 p-5 shadow-2xl shadow-black/30 backdrop-blur-xl sm:inset-8 sm:p-7">
-                
-                {/* Panel header */}
-                <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.15em] text-slate-500">
-                      Infrastructure
-                    </p>
-                    <p className="mt-1 text-sm font-medium text-slate-200">
-                      Cloud deployment
-                    </p>
-                  </div>
+              {/* Traveling particles */}
+              <circle r="3.5" fill="#FF7187">
+                <animateMotion dur="3s" repeatCount="indefinite" path={`M${CX},${CY} L${satellites[0].x},${satellites[0].y}`} />
+              </circle>
+              <circle r="3.5" fill="#5BA7FF">
+                <animateMotion dur="3.6s" begin="0.6s" repeatCount="indefinite" path={`M${CX},${CY} L${satellites[2].x},${satellites[2].y}`} />
+              </circle>
+              <circle r="3.5" fill="#FFF09A">
+                <animateMotion dur="4.2s" begin="1.2s" repeatCount="indefinite" path={`M${CX},${CY} L${satellites[4].x},${satellites[4].y}`} />
+              </circle>
 
-                  <div className="flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/5 px-3 py-1.5">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                    <span className="text-[11px] font-medium text-emerald-300">
-                      Operational
-                    </span>
-                  </div>
-                </div>
+              {/* Satellite solid objects */}
+              {satellites.map((s, i) => (
+                <g key={s.label} className={i % 2 === 0 ? "float-y" : "float-y-slow"} style={{ transformOrigin: `${s.x}px ${s.y}px` }}>
+                  <circle cx={s.x} cy={s.y} r={s.r} fill={s.color} />
+                  <text x={s.x} y={s.y + 4} fontSize="9" fontWeight="700" letterSpacing="0.04em" textAnchor="middle" fill="#27233A">
+                    {s.label}
+                  </text>
+                </g>
+              ))}
 
-                {/* Diagram */}
-                <div className="relative mt-8 h-[calc(100%-4.5rem)] min-h-[310px]">
-                  
-                  {/* Connection lines */}
-                  <div
-                    aria-hidden="true"
-                    className="absolute left-1/2 top-[82px] h-[95px] w-px -translate-x-1/2 bg-gradient-to-b from-blue-400/60 to-blue-400/10"
-                  />
-
-                  <div
-                    aria-hidden="true"
-                    className="absolute left-1/2 top-[176px] h-px w-[68%] -translate-x-1/2 bg-gradient-to-r from-transparent via-blue-400/40 to-transparent"
-                  />
-
-                  <div
-                    aria-hidden="true"
-                    className="absolute left-[33%] top-[176px] h-[76px] w-px bg-blue-400/20"
-                  />
-
-                  <div
-                    aria-hidden="true"
-                    className="absolute right-[33%] top-[176px] h-[76px] w-px bg-blue-400/20"
-                  />
-
-                  {/* Cloud */}
-                  <div className="absolute left-1/2 top-0 flex h-[82px] w-[150px] -translate-x-1/2 flex-col items-center justify-center rounded-2xl border border-blue-400/30 bg-blue-500/10 shadow-lg shadow-blue-500/10">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      className="h-7 w-7 text-blue-400"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M7 18h10a4 4 0 0 0 .4-7.98A6 6 0 0 0 5.2 11.5 3.5 3.5 0 0 0 7 18Z"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                      />
-                    </svg>
-
-                    <span className="mt-2 text-xs font-medium text-blue-200">
-                      Cloud
-                    </span>
-                  </div>
-
-                  {/* Deployment */}
-                  <div className="absolute left-1/2 top-[130px] flex h-[76px] w-[140px] -translate-x-1/2 flex-col items-center justify-center rounded-xl border border-violet-400/20 bg-violet-500/5">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      className="h-6 w-6 text-violet-400"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M12 3v12m0 0 4-4m-4 4-4-4M5 20h14"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-
-                    <span className="mt-2 text-xs font-medium text-slate-300">
-                      Deployment
-                    </span>
-                  </div>
-
-                  {/* Bottom nodes */}
-                  <div className="absolute bottom-2 left-0 right-0 grid grid-cols-3 gap-3">
-                    {[
-                      {
-                        label: "Infrastructure",
-                        icon: "01",
-                      },
-                      {
-                        label: "Automation",
-                        icon: "02",
-                      },
-                      {
-                        label: "Application",
-                        icon: "03",
-                      },
-                    ].map((item) => (
-                      <div
-                        key={item.label}
-                        className="rounded-xl border border-white/10 bg-white/[0.025] p-3 text-center"
-                      >
-                        <span className="text-[10px] text-blue-400">
-                          {item.icon}
-                        </span>
-
-                        <p className="mt-1 text-[11px] font-medium text-slate-400">
-                          {item.label}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating status cards */}
-              <div className="absolute -left-2 top-24 hidden rounded-xl border border-white/10 bg-[#101827]/95 px-4 py-3 shadow-xl shadow-black/30 backdrop-blur-md sm:block">
-                <p className="text-[10px] uppercase tracking-wider text-slate-500">
-                  Deployments
-                </p>
-                <p className="mt-1 text-sm font-semibold text-slate-200">
-                  Automated
-                </p>
-              </div>
-
-              <div className="absolute -right-2 bottom-24 hidden rounded-xl border border-white/10 bg-[#101827]/95 px-4 py-3 shadow-xl shadow-black/30 backdrop-blur-md sm:block">
-                <p className="text-[10px] uppercase tracking-wider text-slate-500">
-                  Architecture
-                </p>
-                <p className="mt-1 text-sm font-semibold text-slate-200">
-                  Scalable
-                </p>
-              </div>
-
-              {/* Decorative nodes */}
-              <div
-                aria-hidden="true"
-                className="absolute right-2 top-10 h-2 w-2 rounded-full bg-blue-400 shadow-[0_0_15px_rgba(96,165,250,0.9)]"
-              />
-
-              <div
-                aria-hidden="true"
-                className="absolute bottom-10 left-4 h-1.5 w-1.5 rounded-full bg-violet-400 shadow-[0_0_12px_rgba(139,92,246,0.8)]"
-              />
-            </div>
+              {/* Central INTELLIGENCE object */}
+              <circle cx={CX} cy={CY} r="54" fill="#27233A" />
+              <circle cx={CX} cy={CY} r="54" fill="none" stroke="#FF7187" strokeOpacity="0.5" strokeWidth="2" className="node-pulse" style={{ transformOrigin: `${CX}px ${CY}px` }} />
+              <text x={CX} y={CY - 3} fontSize="11" fontWeight="700" textAnchor="middle" fill="white">
+                INTELLI-
+              </text>
+              <text x={CX} y={CY + 13} fontSize="11" fontWeight="700" textAnchor="middle" fill="white">
+                GENCE
+              </text>
+            </svg>
           </div>
         </div>
       </div>

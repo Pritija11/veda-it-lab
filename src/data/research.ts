@@ -1,37 +1,37 @@
 export const researchArticles = [
   {
-    slug: "cloud-infrastructure-trends",
-    title: "The Evolution of Modern Cloud Infrastructure",
+    slug: "agent-vs-chatbot",
+    title: "What Actually Makes an AI Agent Different From a Chatbot",
     excerpt:
-      "Exploring how cloud infrastructure is evolving toward more scalable, automated, and resilient architectures.",
-    category: "Cloud Engineering",
+      "A chatbot answers questions. An agent takes actions inside real systems. The distinction matters more than most AI marketing admits.",
+    category: "Generative & Agentic AI",
   },
   {
-    slug: "devops-automation",
-    title: "The Role of Automation in Modern DevOps",
+    slug: "data-before-model",
+    title: "Why the Data Pipeline Matters More Than the Model Choice",
     excerpt:
-      "Understanding how automation can improve software delivery, infrastructure management, and operational efficiency.",
-    category: "DevOps & Automation",
+      "Most AI projects fail on the unglamorous half — the data. A look at why pipeline quality outweighs model selection.",
+    category: "Data & Intelligence",
   },
   {
-    slug: "infrastructure-security",
-    title: "Building Security into Cloud Infrastructure",
+    slug: "prototype-to-production-gap",
+    title: "The Gap Between an AI Prototype and a Production System",
     excerpt:
-      "Exploring practical approaches to making security a fundamental part of modern cloud and infrastructure design.",
-    category: "Infrastructure Security",
+      "A working demo and a system that survives real traffic, drift, and failure are two different engineering problems.",
+    category: "AI Engineering & Deployment",
   },
   {
-    slug: "cloud-native-architecture",
-    title: "Understanding Cloud-Native Architecture",
+    slug: "document-ai-real-world",
+    title: "Where Document AI Actually Earns Its Keep",
     excerpt:
-      "A look at the principles behind cloud-native systems and how they influence scalability, reliability, and deployment.",
-    category: "Cloud Engineering",
+      "OCR and document extraction rarely make headlines, but they quietly automate more real business workflows than most generative AI features.",
+    category: "Computer Vision & Document AI",
   },
   {
-    slug: "infrastructure-as-code",
-    title: "Infrastructure as Code and Modern Infrastructure Management",
+    slug: "when-not-to-use-ai",
+    title: "Knowing When Not to Reach for AI",
     excerpt:
-      "Exploring how infrastructure as code is changing the way teams provision, manage, and maintain cloud environments.",
-    category: "DevOps & Automation",
+      "Applied AI done well starts with recognizing which problems are actually AI problems — and which just need better software.",
+    category: "Applied AI",
   },
 ];

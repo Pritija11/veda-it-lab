@@ -1,64 +1,60 @@
 import Link from "next/link";
+import Reveal from "@/components/ui/Reveal";
 
 export default function FinalCTA() {
   return (
-    <section className="relative overflow-hidden border-t border-white/10 bg-[#070B14] py-24 sm:py-28">
-      {/* Background grid */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 opacity-[0.025]"
-        style={{
-          backgroundImage:
-            "linear-gradient(#94A3B8 1px, transparent 1px), linear-gradient(90deg, #94A3B8 1px, transparent 1px)",
-          backgroundSize: "56px 56px",
-        }}
-      />
+    <section className="bg-[#FFFDF8] py-20 sm:py-28">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <Reveal>
+          <div className="relative isolate overflow-hidden rounded-[2.5rem] bg-[#FF9FAE] px-8 py-16 sm:px-16 sm:py-20">
+            <div
+              className="solid-shape shape-float float-y-slow h-[110px] w-[110px] rounded-[38%_62%_55%_45%/48%_40%_60%_52%] bg-[#FFF09A]"
+              style={{ top: "-30px", left: "-30px" }}
+              aria-hidden
+            />
+            <div
+              className="solid-shape shape-float float-y h-[90px] w-[90px] rounded-full bg-[#BDEBFF]"
+              style={{ bottom: "-25px", right: "10%", animationDelay: "2s" }}
+              aria-hidden
+            />
+            <div
+              className="solid-shape shape-float float-y-fast h-[64px] w-[64px] rounded-[30%] bg-[#BDF3D2]"
+              style={{ top: "18%", right: "-18px", animationDelay: "4s" }}
+              aria-hidden
+            />
 
-      {/* Central glow */}
-      <div
-        aria-hidden="true"
-        className="absolute left-1/2 top-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/10 blur-[130px]"
-      />
+            <div className="relative flex flex-col items-start gap-8">
+              <div className="chip bg-[#27233A]/10 text-[#27233A]">Let&apos;s talk</div>
 
-      <div className="relative mx-auto max-w-4xl px-6 text-center lg:px-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-400">
-          Let's build what's next
-        </p>
+              <h2 className="max-w-3xl font-[family-name:var(--font-fraunces)] text-4xl font-semibold leading-[1.05] tracking-[-0.01em] text-[#27233A] sm:text-6xl">
+                Have an AI idea{" "}
+                <span className="italic">worth building?</span>
+              </h2>
 
-        <h2 className="mx-auto mt-5 max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-slate-100 sm:text-5xl lg:text-6xl">
-          Have a technology challenge worth{" "}
-          <span className="text-blue-400">solving?</span>
-        </h2>
+              <p className="max-w-xl text-lg leading-8 text-[#27233A]/75">
+                Let&apos;s turn it into something real — tell us what
+                you&apos;re building, where your data lives, or what&apos;s
+                stuck between a working demo and a production system.
+              </p>
 
-        <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-slate-400 sm:text-lg">
-          Whether you are building a new product, improving infrastructure, or
-          planning your next stage of growth, let's talk about what you're
-          trying to build.
-        </p>
-
-        <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <Link
-            href="/contact"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-blue-500 px-7 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:bg-blue-400 hover:shadow-xl hover:shadow-blue-500/20 sm:w-auto"
-          >
-            Talk to VedAIT Labs
-            <span>→</span>
-          </Link>
-
-          <Link
-            href="/about"
-            className="inline-flex w-full items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] px-7 py-3.5 text-sm font-semibold text-slate-300 transition-all duration-200 hover:border-white/20 hover:bg-white/[0.06] hover:text-white sm:w-auto"
-          >
-            Learn about us
-          </Link>
-        </div>
-
-        {/* Contact detail */}
-        <div className="mt-12 flex flex-col items-center justify-center gap-3 text-sm text-slate-500 sm:flex-row sm:gap-5">
-          <span>Sankhamul, Kathmandu</span>
-          <span className="hidden text-slate-700 sm:block">•</span>
-          <span>01-523456</span>
-        </div>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#27233A] px-8 py-4 text-base font-bold text-white transition-transform duration-200 hover:-translate-y-0.5"
+                >
+                  Let&apos;s Talk
+                  <span>↗</span>
+                </Link>
+                <Link
+                  href="/about"
+                  className="inline-flex items-center gap-2 rounded-full border border-[#27233A]/25 px-8 py-4 text-base font-bold text-[#27233A] transition-colors hover:border-[#27233A]/60"
+                >
+                  Learn about us
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

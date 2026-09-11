@@ -1,128 +1,58 @@
-const capabilities = [
-  {
-    label: "01",
-    title: "Cloud Architecture",
-    description:
-      "Designing cloud environments around scalability, reliability, performance, and practical business requirements.",
-    tags: ["Cloud", "Architecture", "Scalability"],
-  },
-  {
-    label: "02",
-    title: "Continuous Delivery",
-    description:
-      "Creating automated delivery pipelines that help teams release software consistently and with greater confidence.",
-    tags: ["CI/CD", "Automation", "Delivery"],
-  },
-  {
-    label: "03",
-    title: "Infrastructure",
-    description:
-      "Managing infrastructure as a dependable foundation for applications, services, and growing digital products.",
-    tags: ["Infrastructure", "IaC", "Operations"],
-  },
-  {
-    label: "04",
-    title: "System Reliability",
-    description:
-      "Building systems with observability, resilience, monitoring, and operational reliability in mind.",
-    tags: ["Monitoring", "Reliability", "Observability"],
-  },
+import { Sparkles, FlaskConical, Rocket, Activity, Gauge } from "lucide-react";
+import Reveal from "@/components/ui/Reveal";
+
+const stages = [
+  { icon: Sparkles, label: "Model" },
+  { icon: FlaskConical, label: "Evaluate" },
+  { icon: Rocket, label: "Deploy" },
+  { icon: Activity, label: "Monitor" },
+  { icon: Gauge, label: "Optimize" },
 ];
+
+const curvePath = "M40,60 C110,140 150,10 220,70 C290,130 320,20 380,80 C420,120 430,90 440,100";
 
 export default function CoreCapabilities() {
   return (
-    <section className="border-y border-white/10 bg-[#0D1422] py-24 sm:py-28">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        
-        {/* Heading */}
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-          <div className="max-w-2xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-400">
-              Core capabilities
-            </p>
+    <section className="relative overflow-hidden bg-[#FFF09A] py-20 sm:py-28">
+      <div className="solid-shape shape-float h-24 w-24 rounded-[40%] bg-[#FF9FAE]" style={{ top: "-30px", right: "8%" }} aria-hidden />
 
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-slate-100 sm:text-4xl">
-              Engineering the systems{" "}
-              <span className="text-blue-400">behind the product.</span>
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+        <Reveal>
+          <div className="max-w-2xl">
+            <div className="chip bg-[#27233A] text-white">AI Engineering &amp; Deployment</div>
+            <h2 className="mt-5 font-[family-name:var(--font-fraunces)] text-4xl font-semibold leading-[1.05] tracking-[-0.01em] text-[#27233A] sm:text-5xl">
+              We don&apos;t just prototype AI.{" "}
+              <span className="italic text-[#27233A]">We engineer it.</span>
             </h2>
           </div>
+        </Reveal>
 
-          <p className="max-w-md text-sm leading-7 text-slate-400 lg:text-right">
-            Our technical capabilities span the infrastructure and engineering
-            layers that modern digital products depend on.
-          </p>
-        </div>
+        <Reveal delay={100}>
+          <div className="mt-16 rounded-[2rem] border border-[#E8E3ED] bg-white p-6 sm:p-10">
+            <svg viewBox="0 0 480 140" className="hidden w-full sm:block" preserveAspectRatio="none">
+              <path d={curvePath} fill="none" stroke="#E8E3ED" strokeWidth="2" />
+              <path d={curvePath} fill="none" stroke="#5BA7FF" strokeOpacity="0.55" strokeWidth="2" className="dash-flow" />
+              <circle r="4" fill="#FF7187">
+                <animateMotion dur="4.5s" repeatCount="indefinite" path={curvePath} />
+              </circle>
+            </svg>
 
-        {/* Capability list */}
-        <div className="mt-14">
-          {capabilities.map((capability) => (
-            <div
-              key={capability.label}
-              className="group grid gap-6 border-t border-white/10 py-8 transition-colors duration-300 hover:bg-white/[0.015] sm:grid-cols-[80px_1fr_auto] sm:items-center sm:py-10"
-            >
-              {/* Number */}
-              <span className="text-xs font-medium tracking-widest text-slate-600 transition-colors duration-300 group-hover:text-blue-400">
-                {capability.label}
-              </span>
-
-              {/* Content */}
-              <div>
-                <h3 className="text-xl font-semibold tracking-tight text-slate-100">
-                  {capability.title}
-                </h3>
-
-                <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-400">
-                  {capability.description}
-                </p>
-              </div>
-
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 sm:justify-end">
-                {capability.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full border border-white/10 bg-white/[0.025] px-3 py-1.5 text-[11px] text-slate-500 transition-colors duration-300 group-hover:border-blue-400/20 group-hover:text-slate-400"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+            <div className="mt-2 grid grid-cols-3 gap-5 sm:mt-0 sm:grid-cols-5">
+              {stages.map((stage, i) => {
+                const Icon = stage.icon;
+                return (
+                  <div key={stage.label} className="flex flex-col items-center text-center">
+                    <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl bg-[#EAF4FF]">
+                      <span className="node-pulse absolute inset-0 rounded-2xl border-2 border-[#5BA7FF]/30" style={{ animationDelay: `${i * 0.4}s` }} />
+                      <Icon className="h-6 w-6 text-[#5BA7FF]" />
+                    </div>
+                    <p className="mt-3 text-sm font-semibold text-[#27233A]">{stage.label}</p>
+                  </div>
+                );
+              })}
             </div>
-          ))}
-
-          {/* Bottom border */}
-          <div className="border-t border-white/10" />
-        </div>
-
-        {/* Technical statement */}
-        <div className="mt-14 grid gap-5 sm:grid-cols-3">
-          <div className="rounded-xl border border-white/10 bg-[#101827] p-5">
-            <p className="text-xs uppercase tracking-wider text-slate-600">
-              Approach
-            </p>
-            <p className="mt-3 text-sm font-medium text-slate-300">
-              Infrastructure as a foundation
-            </p>
           </div>
-
-          <div className="rounded-xl border border-white/10 bg-[#101827] p-5">
-            <p className="text-xs uppercase tracking-wider text-slate-600">
-              Priority
-            </p>
-            <p className="mt-3 text-sm font-medium text-slate-300">
-              Reliability and security
-            </p>
-          </div>
-
-          <div className="rounded-xl border border-white/10 bg-[#101827] p-5">
-            <p className="text-xs uppercase tracking-wider text-slate-600">
-              Mindset
-            </p>
-            <p className="mt-3 text-sm font-medium text-slate-300">
-              Built to evolve
-            </p>
-          </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

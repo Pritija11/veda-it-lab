@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Serif_Display, Manrope } from "next/font/google";
+import { Fraunces, Plus_Jakarta_Sans } from "next/font/google";
 
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -8,15 +8,14 @@ import OrganizationSchema from "@/components/seo/OrganizationSchema";
 
 import "./globals.css";
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
   subsets: ["latin"],
   display: "swap",
 });
 
-const dmSerif = DM_Serif_Display({
-  variable: "--font-dm-serif",
-  weight: "400",
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
   display: "swap",
 });
@@ -25,36 +24,37 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://vedaitlabs.com"),
 
   title: {
-    default: "VedAIT Labs | Technology Startup",
+    default: "VedAIT Labs | Applied AI & Machine Learning Startup",
     template: "%s | VedAIT Labs",
   },
 
   description:
-    "VedAIT Labs is a technology startup building modern digital and infrastructure solutions, with a strong focus on cloud engineering, DevOps, automation, and security.",
+    "VedAIT Labs is an applied AI startup building machine learning, generative and agentic AI, data intelligence, computer vision, and production AI systems for growing teams.",
 
-    alternates: {
-  canonical: "/",
-},
+  alternates: {
+    canonical: "/",
+  },
 
   keywords: [
     "VedAIT Labs",
     "VedAIT Labs startup",
-    "technology startup",
-    "IT startup",
-    "cloud engineering",
-    "DevOps",
-    "cloud infrastructure",
-    "DevOps automation",
-    "IT solutions",
+    "applied AI startup",
+    "AI research",
+    "machine learning",
+    "generative AI",
+    "agentic AI",
+    "computer vision",
+    "MLOps",
+    "AI engineering",
   ],
 
   authors: [{ name: "VedAIT Labs" }],
   creator: "VedAIT Labs",
 
   openGraph: {
-    title: "VedAIT Labs | Technology Startup",
+    title: "VedAIT Labs | Applied AI & Machine Learning Startup",
     description:
-      "VedAIT Labs is a technology startup building modern digital and infrastructure solutions, with a strong focus on cloud engineering, DevOps, automation, and security.",
+      "VedAIT Labs is an applied AI startup building machine learning, generative and agentic AI, data intelligence, computer vision, and production AI systems for growing teams.",
     type: "website",
     siteName: "VedAIT Labs",
   },
@@ -73,7 +73,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${manrope.variable} ${dmSerif.variable} antialiased`}
+        className={`${jakarta.variable} ${fraunces.variable} antialiased`}
       >
         <OrganizationSchema />
         <Navbar />
