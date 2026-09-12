@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f7f6f2;
+  --foreground: #111111;
+  --primary: #ff5a4f;
+  --primary-soft: #ffe7e4;
+  --muted: #707074;
+  --border: #deddd8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-dm-sans), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+::selection {
+  background: var(--primary);
+  color: white;
+}
+
+/* Prevent animated elements from creating horizontal overflow */
+main,
+section {
+  max-width: 100%;
+}
+
+/* Better anchor positioning below the fixed header */
+section[id] {
+  scroll-margin-top: 90px;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 639px) {
+  body {
+    font-size: 15px;
+  }
+}
+
+/* Tablet and up */
+@media (min-width: 640px) {
+  body {
+    font-size: 16px;
+  }
+}
